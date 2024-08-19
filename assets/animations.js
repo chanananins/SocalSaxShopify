@@ -21,6 +21,22 @@ function onIntersection(elements, observer) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  const imageElement = document.querySelector('.image-with-text__media img'); // Adjust the selector as needed
+  const images = [
+    'shopify:\/\/shop_images\/Screenshot_2024-08-18_at_5.47.11_PM.png',
+    'shopify:\/\/shop_images\/ConcertBalls.png'
+  ];
+  let currentIndex = 0;
+
+  function switchImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    imageElement.src = images[currentIndex];
+  }
+
+  setInterval(switchImage, 5000); // Switch image every 5 seconds
+});
+
 function initializeScrollAnimationTrigger(rootEl = document, isDesignModeEvent = false) {
   const animationTriggerElements = Array.from(rootEl.getElementsByClassName(SCROLL_ANIMATION_TRIGGER_CLASSNAME));
   if (animationTriggerElements.length === 0) return;
